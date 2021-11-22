@@ -33,7 +33,7 @@
             <li><%= link_to "New Feature Request", new_request_path %></li>
             <li><%= link_to("My Feature Requests", "/#{current_user.id}/requests", method: :my_requests) %></li>
             <li><%= link_to("My Votes", "/#{current_user.id}/votes", method: :my_votes) %></li>
-            <li><%= link_to("Log out", logout_path, method: :delete)  if logged_in? %></li>
+            <li><%= link_to("Log Out", logout_path, method: :delete)  if logged_in? %></li>
         </ul>
     </div>
   <div class="content">
