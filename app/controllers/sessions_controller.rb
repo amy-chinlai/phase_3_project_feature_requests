@@ -10,14 +10,13 @@ class SessionsController < ApplicationController
             log_in(user)
             redirect_to requests_path
         else
-            puts "inside the else"
-            render 'new'
+            redirect_to '/login', alert: "Your username and password combination is invalid!"
         end
     end
 
     def destroy
         log_out
-        redirect_to '/signup'
+        redirect_to '/signup', alert: "You are now logged out!"
     end
 
 end

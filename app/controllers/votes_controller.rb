@@ -19,6 +19,11 @@ class VotesController < ApplicationController
         @votes = Vote.where(user_id: current_user.id)
     end
 
+    def most_votes
+        sorted_requests = Request.all.sort {|a, b| a.total_votes <=> b.total_votes}
+        @requests = sorted_requests.first(3)
+    end
+
     private
 
     def vote_params

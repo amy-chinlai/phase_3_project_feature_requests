@@ -17,5 +17,6 @@ Rails.application.routes.draw do
 
   get '/:id/requests' => 'requests#my_requests'
   get '/:id/votes' => 'votes#my_votes'
+  get '/most_votes' => 'votes#most_votes'
 
 end
