@@ -1,3 +1,11 @@
+<% if @request.errors.any? %>
+    <% @request.errors.full_messages.each do |m| %>
+        <div class="alert">
+        <%= m %>
+        </div>
+    <% end %>
+<% end %>
+
 <%= form_for @request do |f| %>
 
 

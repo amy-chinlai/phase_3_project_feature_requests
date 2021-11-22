@@ -1,7 +1,9 @@
 <h1>Sign Up</h1>
 <% if @user.errors.any? %>
     <% @user.errors.full_messages.each do |m| %>
+        <div class="alert">
         <%= m %>
+        </div>
     <% end %>
 <% end %>
 <%= form_for @user do |f| %>

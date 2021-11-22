@@ -1,6 +1,6 @@
 <h2><%= @request.name %></h2>
-<h3>Category: <%= @request.category.name %></h3>
-<p><%= @request.description %></p>
+<p>Category: <%= @request.category.name %></p>
+<p>Description: <%= @request.description %></p>
 <p>Created by: <%= @request.creator.email %> from <%= @request.creator.organization %></p>
 
 <%= link_to "Edit Feature Request", edit_request_path(@request) if current_user == @request.creator %>

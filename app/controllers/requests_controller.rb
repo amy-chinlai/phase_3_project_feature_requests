@@ -17,8 +17,11 @@ class RequestsController < ApplicationController
 
     def create
         @request = Request.new(request_params)
-        @request.save
-        redirect_to request_path(@request)
+        if @request.save
+            redirect_to request_path(@request)
+        else
+            render 'new'
+        end
     end
 
     def edit

@@ -5,7 +5,8 @@ class Request < ApplicationRecord
     belongs_to :category, required: true
 
     validates :name, {
-        uniqueness: true
+        uniqueness: true,
+        presence: true
     }
     
     validates :category_id, presence: true
