@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   get 'requests/:id/delete' => 'requests#destroy'
   get 'categories/:id/delete' => 'categories#destroy'
 
-  get '/:id/requests' => 'requests#my_requests'
-  get '/:id/votes' => 'votes#my_votes'
+  get 'users/:id/requests' => 'requests#my_requests'
+  get 'users/:id/votes' => 'votes#my_votes'
   get '/most_votes' => 'votes#most_votes'
 
 end
