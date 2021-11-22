@@ -31,6 +31,11 @@
     font-size: 42pt;
 }
 
+.alert {
+    background-color: #266150;
+    color: #FDF8F5;
+}
+
 .sidebar {
     width: 20%;
     float: left;
@@ -60,3 +65,13 @@ td {
     padding: 10px;
 }
 
+.total_votes {
+    text-align: center;
+}
+
+input[type="submit"] {
+    background-color: #266150;
+    color: #FDF8F5;
+    margin: 4px 2px;
+    padding: 8px 16px;
+}

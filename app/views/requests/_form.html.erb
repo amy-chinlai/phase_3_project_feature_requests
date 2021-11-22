@@ -3,13 +3,14 @@
 
     <%= f.hidden_field :creator_id, value: current_user.id %>
 
-    <%= f.collection_select(:category_id, Category.all, :id, :name, { include_blank: 'Select' }) %><br>
+    <%= f.label "Category" %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, { include_blank: 'Select' }) %><br><br>
 
     <%= f.label :name %>
-    <%= f.text_field :name %><br>
+    <%= f.text_field :name %><br><br>
 
     <%= f.label :description %>
-    <%= f.text_area :description %><br>
+    <%= f.text_area :description %><br><br>
 
     <%= f.submit %>
     
