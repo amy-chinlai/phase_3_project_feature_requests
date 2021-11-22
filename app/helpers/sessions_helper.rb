@@ -22,7 +22,19 @@ module SessionsHelper
       end
 
     def authenticated?
-        logged_in? && current_user == user_by_param
+        if logged_in? && current_user == user_by_param
+            true
+        else
+            redirect_to requests_path, alert: "You do not have access to that page!"
+        end
+    end
+
+    def admin?
+        if current_user.admin
+            true
+        else
+            redirect_to requests_path, alert: "You do not have access to that page!"
+        end
     end
 
 end

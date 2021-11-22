@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :requests, only: [:index, :show, :new, :create, :edit, :update, :delete] do 
     resources :votes, only: [:new, :create]
   end
+
+  resources :categories, only: [:index, :new, :create, :delete]
   
   resources :users, only: [:new, :create, :destroy]
   get 'signup' => 'users#new'
@@ -11,5 +13,9 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
 
   get 'requests/:id/delete' => 'requests#destroy'
+  get 'categories/:id/delete' => 'categories#destroy'
+
+  get '/:id/requests' => 'requests#my_requests'
+  get '/:id/votes' => 'votes#my_votes'
 
 end

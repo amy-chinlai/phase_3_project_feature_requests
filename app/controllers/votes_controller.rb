@@ -1,6 +1,9 @@
 class VotesController < ApplicationController
 
     before_action :has_voted?, only: [:new, :create]
+    before_action :authenticated?, only: [:my_votes]
+    before_action :logged_in?
+
     def new
         create
         redirect_to requests_path
@@ -10,6 +13,10 @@ class VotesController < ApplicationController
         vote = Vote.new(vote_params)
         vote.user_id = current_user.id
         vote.save
+    end
+
+    def my_votes
+        @votes = Vote.where(user_id: current_user.id)
     end
 
     private

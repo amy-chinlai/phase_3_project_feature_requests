@@ -1,21 +1,6 @@
 <h1>All Feature Requests</h1>
 
-<table>
-<tr>
-    <th>Feature</th>
-    <th>Total Votes</th>
-    <th></th>
-    <th></th>
-</tr>
-<% @requests.each do |r| %>
-    <tr>
-        <td><%= r.name %></td>
-        <td><%= link_to "More Details", request_path(r) %></td>
-        <td><%= r.total_votes %></td>
-        <td><%= link_to "Down Vote", new_request_vote_path(r, :vote_type => -1 )%></td>
-        <td><%= link_to "Up Vote", new_request_vote_path(r, :vote_type => 1 )%></td>
-    </tr>
-
+<% @category.each do |c| %>
+    <h2><%= c.name %></h2>
+    <%= render partial: 'display',  locals: {requests: c.requests }%>
 <% end %>
-
-</table>

@@ -4,4 +4,4 @@
 <p>Created by: <%= @request.creator.email %> from <%= @request.creator.organization %></p>
 
 <%= link_to "Edit Feature Request", edit_request_path(@request) %>
-<%= link_to "Delete Feature Request",  "/requests/#{@request.id}/delete" %>
+<%= link_to "Delete Feature Request",  "/requests/#{@request.id}/delete" if current_user.admin %>

@@ -1,7 +1,10 @@
 class RequestsController < ApplicationController
+    before_action :authenticated?, only: [:my_requests]
+    before_action :logged_in?
 
     def index
         @requests = Request.all
+        @category = Category.all
     end
 
     def show
@@ -32,6 +35,10 @@ class RequestsController < ApplicationController
         @request = Request.find_by(id: params[:id])
         @request.destroy
         redirect_to requests_path, alert: "Feature request deleted!"
+    end
+
+    def my_requests
+        @requests = Request.where(creator_id: current_user.id)
     end
 
 
